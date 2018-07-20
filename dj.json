@@ -1,0 +1,136 @@
+{
+  "entries": [
+    {
+      "data": [
+        {
+          "id": "CHI0000020180609ee680000b",
+          "attributes": {
+            "publication_date": "2018-06-08T00:00:00.000Z",
+            "title": "National Museum of African American History and Culture unveil Oprah exhibit",
+            "company_codes": ",aahcnm,aahcnm,aahcnm,bigmac,bigmac,fdexps,fdexps,mgmg,mgmg,"
+          }
+        }
+      ]
+    },
+    {
+      "data": [
+        {
+          "id": "CHI0000020180609ee680001w",
+          "attributes": {
+            "publication_date": "2018-06-08T00:00:00.000Z",
+            "title": "The Donald and The Alderman break up; Burke no longer doing tax work for Trump",
+            "company_codes": ",maybp,maybp,sbcatt,sbcatt,truog,truog,"
+          }
+        }
+      ]
+    },
+    {
+      "data": [
+        {
+          "id": "NFINCE0020180609ee69001jn",
+          "attributes": {
+            "publication_date": "2018-06-09T00:00:00.000Z",
+            "title": "BofA and JP Morgan raise prospects for Chile",
+            "company_codes": ",ncnbco,cnyc,cnyc,ncnbco,ncnbco,cnyc,"
+          }
+        }
+      ]
+    },
+    {
+      "data": [
+        {
+          "id": "OB00000020180609ee6900001",
+          "attributes": {
+            "publication_date": "2018-06-09T09:23:44.000Z",
+            "title": "Tie a good cause to a bath bomb and watch your profits rocket",
+            "company_codes": ",orcle,orcle,orl,orl,"
+          }
+        }
+      ]
+    },
+    {
+      "data": [
+        {
+          "id": "XWTH000020180609ee6900005",
+          "attributes": {
+            "publication_date": "2018-06-09T00:00:00.000Z",
+            "title": "LETTERS: Thoughts on cellular phone service, Cattle Baron's Ball and imperiled pets",
+            "company_codes": ",huhair,huhair,sbcatt,sbcatt,"
+          }
+        }
+      ]
+    },
+    {
+      "data": [
+        {
+          "id": "XTPA000020180609ee680003k",
+          "attributes": {
+            "publication_date": "2018-06-08T00:00:00.000Z",
+            "title": "A nationwide outage of some Comcast business phone services Wednesday into...",
+            "company_codes": ",comcst,comcst,twnit,comcst,"
+          }
+        }
+      ]
+    },
+    {
+      "data": [
+        {
+          "id": "RNKE000020180609ee690000a",
+          "attributes": {
+            "publication_date": "2018-06-09T00:00:00.000Z",
+            "title": "GE announces downsizing plan; GE Power in Salem issues letter of intent to end manufacturing operations",
+            "company_codes": ",gepows,cpbhnmw,gepows,gepows,gnelc,gnelc,supus,"
+          }
+        }
+      ]
+    },
+    {
+      "data": [
+        {
+          "id": "NBCVA00020180609ee680000b",
+          "attributes": {
+            "publication_date": "2018-06-08T00:00:00.000Z",
+            "title": "General Electric to close Salem manufacturing plant, eliminating 265 jobs; 42% are eligible to retire",
+            "company_codes": ",gnelc,gnelc,gnelc,"
+          }
+        }
+      ]
+    },
+    {
+      "data": [
+        {
+          "id": "CLASSAR020180609ee680001l",
+          "attributes": {
+            "publication_date": "2018-06-08T00:00:00.000Z",
+            "title": "MORGAN STANLEY: Former Worker Files Labor Class Action",
+            "company_codes": ",lplfnz,dwitd,dwitd,lplfnz,lplfnz,linpl,"
+          }
+        }
+      ]
+    },
+    {
+      "data": [
+        {
+          "id": "YEDNO00020180609ee68000e1",
+          "attributes": {
+            "publication_date": "2018-06-08T00:00:00.000Z",
+            "title": "Altr raises $15 million to use blockchain for cybersecurity",
+            "company_codes": ",btriv,btriv,ibm,ibm,mcrost,mcrost,orcle,"
+          }
+        }
+      ]
+    },
+    {
+      "data": [
+        {
+          "id": "TRENDE0020180609ee69000gu",
+          "attributes": {
+            "publication_date": "2018-06-09T08:19:26.000Z",
+            "title": "Oil prices will likely be driven lower in quarters ahead",
+            "company_codes": ",cnyc,cnyc,oecode,oecode,opexpc,opexpc,twnit,opexpc,"
+          }
+        }
+      ]
+    }
+  ]
+}

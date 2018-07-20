@@ -1,0 +1,57 @@
+@App:name("DJRPNewsAggregator")
+@App:description('Receive news via HTTP transport and join with RavenPack sentiment analysis')
+
+@sink(type = 'http-request', publisher.url = 'http://localhost:9090/news', method = 'GET', sink.id = 'djnews-sink',
+	@map(type='json'))
+define stream RequestStream (triggered_time long);
+
+@source(type = 'http-response', sink.id = 'djnews-sink',
+	@map(type='json', enclosing.element="$.data",
+        @attributes(publication_date='attributes.publication_date', title='attributes.title', company_codes='attributes.company_codes')))
+define stream DJNewsStream (publication_date string, title string, company_codes string);
+
+@source(type = 'http',
+        receiver.url='http://localhost:8006/sentimentStream',
+        basic.auth.enabled='false',
+        @map(type='csv', header='false',
+            @attributes(RP_ENTITY_ID='0', HEADLINE='1', SOURCE_NAME='2', RELEVANCE='3')))
+define stream RPSentimentStream (RP_ENTITY_ID string, HEADLINE string, SOURCE_NAME string, RELEVANCE string);
+
+@store(type="rdbms",
+      jdbc.url="jdbc:mysql://localhost:3306/DJNewsDB",
+      username="root",
+      password="root" ,
+      jdbc.driver.name="com.mysql.jdbc.Driver",
+      table.name="DJ_RP_Mapping")
+define table DJRPMappingTable(DJ_ID string, RP_ID string, ISSR_LEGAL_NAME string);
+
+define trigger NewsRetrieverTriggerStream at every 3 sec;
+
+define stream DJNewsByCompanyStream (publication_date string, title string, company_codes string, token string);
+
+define stream RPDJSentimentStream (RP_ID string, DJ_ID string, HEADLINE string, SOURCE_NAME string, RELEVANCE string, ISSR_LEGAL_NAME string);
+
+@sink(type='log')
+define stream NewsSentimentStream (RP_ID string, DJ_ID string, HEADLINE string, SOURCE_NAME string, RELEVANCE string, ISSR_LEGAL_NAME string, publication_date string, company_code string);
+
+@info(name='query1')
+from NewsRetrieverTriggerStream
+select triggered_time
+insert into RequestStream;
+
+@info(name='query2')
+from DJNewsStream#str:tokenize(company_codes, ",")
+insert all events into DJNewsByCompanyStream;
+
+@info(name='query3')
+from RPSentimentStream as s join DJRPMappingTable as t
+    on s.RP_ENTITY_ID == t.RP_ID
+select t.RP_ID, t.DJ_ID, s.HEADLINE, s.SOURCE_NAME, s.RELEVANCE, t.ISSR_LEGAL_NAME
+insert into RPDJSentimentStream;
+
+@info(name='query4')
+from RPDJSentimentStream#window.time(120 sec) as s join DJNewsByCompanyStream#window.time(120 sec) as n
+    on s.DJ_ID == n.token and s.HEADLINE == n.title
+select s.RP_ID, s.DJ_ID, s.HEADLINE, s.SOURCE_NAME, s.RELEVANCE, s.ISSR_LEGAL_NAME, n.publication_date, n.token as company_code
+insert into NewsSentimentStream;
+
